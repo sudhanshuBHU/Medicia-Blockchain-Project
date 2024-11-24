@@ -44,6 +44,7 @@ const CheckWallet = () => {
             // console.log("window.web3");
         } else {
             console.log("non-ethereum browser");
+            sweetAlertError("Non-Ethereum browser detected. You should consider trying MetaMask!");
         }
         return provider;
     }

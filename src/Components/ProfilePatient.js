@@ -7,6 +7,7 @@ import { ABI, ADD } from "./AddAndAbi";
 import PopupModalRating from "./PopupModalRating";
 import PopupResetPassword from "./PopupResetPassword";
 import PopupCrossCheck from "./PopupCrossCheck";
+import Swal from "sweetalert2";
 
 
 const ProfileDoctor = (prop) => {
@@ -487,7 +488,13 @@ const ProfileDoctor = (prop) => {
         setSelectedSpec(tempDoctorList[finalIndex].specialization);
         setSelectedDoctorId(tempDoctorList[finalIndex].licenseId);
     }
-
+    const sweetAlertError = (res = "Oops Error Occured. Please Try Again.") => {
+        Swal.fire({
+            title: "Error",
+            text: res,
+            icon: "error"
+        })
+    }
     const detectProvider = () => {
         let provider;
         if (window.ethereum) {
@@ -496,6 +503,7 @@ const ProfileDoctor = (prop) => {
             provider = window.web3.currentProvider;
         } else {
             console.log("non-ethereum browser");
+            sweetAlertError("Non-Ethereum browser detected. You should consider trying MetaMask!");
         }
         return provider;
     }

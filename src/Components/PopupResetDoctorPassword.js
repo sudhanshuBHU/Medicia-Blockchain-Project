@@ -42,6 +42,7 @@ const PopupResetDoctorPassword = ({ onClose, id }) => {
             provider = window.web3.currentProvider;
         } else {
             console.log("non-ethereum browser");
+            sweetAlertError("Non-Ethereum browser detected. You should consider trying MetaMask!");
         }
         return provider;
     }

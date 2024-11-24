@@ -127,6 +127,7 @@ const PopupCrossCheck = ({ onClose, crossReport, notificationIndex, pid }) => {
             provider = window.web3.currentProvider;
         } else {
             console.log("non-ethereum browser");
+            sweetAlertError("Non-Ethereum browser detected. You should consider trying MetaMask!");
         }
         return provider;
     }
